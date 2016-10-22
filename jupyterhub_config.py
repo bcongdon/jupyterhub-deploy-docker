@@ -61,7 +61,6 @@ c.JupyterHub.cookie_secret_file = os.path.join(data_dir,
     'jupyterhub_cookie_secret')
 
 # Whitlelist users and admins
-c.Authenticator.whitelist = whitelist = set()
 c.Authenticator.admin_users = admin = set()
 c.JupyterHub.admin_access = True
 pwd = os.path.dirname(__file__)
@@ -71,6 +70,5 @@ with open(os.path.join(pwd, 'userlist')) as f:
             continue
         parts = line.split()
         name = parts[0]
-        whitelist.add(name)
         if len(parts) > 1 and parts[1] == 'admin':
             admin.add(name)
